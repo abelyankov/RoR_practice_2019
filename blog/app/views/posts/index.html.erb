@@ -1,0 +1,23 @@
+<div>
+  <h1>Список постов</h1>
+  <table style="width:100%">
+    <tr>
+      <td>id</td>
+      <td>title</td>
+      <td>text</td>
+    </tr>
+    <% @posts.each do |post| %>
+      <tr>
+        <td>
+          <%= link_to post.id, post_path(post.id) %>
+        </td>
+        <td>
+          <%= post.title %>
+        </td>
+        <td>
+          <%= post.text %>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+</div>
