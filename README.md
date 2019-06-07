@@ -9,6 +9,16 @@
   
   * запустить установку гемов `bundle install`;
   * изменить `GameFile`, если у вас `sqlite3`;
+   * изменить `database.yml` на 
+``` 
+default: &default
+  adapter: sqlite3
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  timeout: 5000
+development:
+  <<: *default
+  database: db/development.sqlite3 
+```
   * прогнать миграцию `rails db:migrate`;
   * прогнать сиды `rails db:seed`;
   * запустить сервер `rails s`.
