@@ -1,8 +1,9 @@
 <div>
   <%= link_to "Назад", post_path(@post) %>
   <%= form_for @post do |f| %>
-    <%= f.text_field :title, value: @post.title %>
-    <%= f.text_area :text, value: @post.text %>
-    <%= f.submit "Иземенить пост" %>
+    <%= f.text_field :title, value: @post.title, style: "margin: 10px"%><br>
+    <%= f.text_area :text, value: @post.text, style: "margin: 10px" %><br>
+    <%= f.select :author_id, options_for_select( Author.all.map{|p| [p.full_name, p.id]}, params[:author_id]) %>
+    <%= f.submit "Иземенить пост", style: "margin: 10px" %>
   <% end %>
 </div>

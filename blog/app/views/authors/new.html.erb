@@ -1,0 +1,8 @@
+<div>
+  <%= link_to 'К списку постов', url_for(:back) %>
+  <%= form_for @author do |f| %>
+    <%= f.text_field :first_name, style: "margin: 10px"%><br>
+    <%= f.text_field :last_name, style: "margin: 10px" %><br>
+    <%= f.submit "Cоздать", style: "margin: 10px" %>
+  <% end %>
+</div>

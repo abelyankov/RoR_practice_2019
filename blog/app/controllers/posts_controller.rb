@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   def index
     @posts = Post.all
+    @authors = Author.all
   end
 
   def show
@@ -12,7 +13,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.create(title: params[:post][:title], text: params[:post][:text])
+    @post = Post.create(title: params[:post][:title], text: params[:post][:text], author_id: params[:post][:author_id])
 
     if @post.save
       redirect_to posts_path, notice: "Созадан пост #{@post.id}"
@@ -27,10 +28,10 @@ class PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
-    @post.update(title: params[:post][:title], text: params[:post][:text])
+    @post.update(title: params[:post][:title], text: params[:post][:text], author_id: params[:post][:author_id])
 
     if @post.save
-      redirect_to post_path(@post.id), notice: "Пост ##{@post.id} изменён"
+      redirect_to posts_path, notice: "Пост ##{@post.id} изменён"
     else
       render 'new'
     end

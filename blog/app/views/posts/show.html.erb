@@ -1,6 +1,7 @@
 <div>
   <%= link_to 'К списку постов', posts_path %>
   <h1>Пост №<%=@post.id %></h1>
-  <h3><%= @post.title %></h3>
+  <h3>Заголовок: <%= @post.title %></h3>
   <p><%= @post.text %></p>
+  <p>Автор: <%= @post.author.full_name %></p>
 </div>

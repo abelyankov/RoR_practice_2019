@@ -1,11 +1,14 @@
 <div>
-  <h1>Список постов</h1>
+  <h1>Блог</h1>
+
+  <h3>Посты</h3>
   <%= link_to "Создать пост", new_post_path %>
-  <table style="width:100%">
+  <table style="width:50%">
     <tr>
       <td>id</td>
       <td>title</td>
       <td>text</td>
+      <td>author</td>
       <td>methods</td>
     </tr>
     <% @posts.each do |post| %>
@@ -20,11 +23,33 @@
           <%= post.text %>
         </td>
         <td>
+          <%= post.author.full_name %>
+        </td>
+        <td>
           <%= link_to "Показать", post_path(post) %>
-          <%= link_to "Изменить пост", edit_post_path(post) %>
+          <%= link_to "Изменить", edit_post_path(post) %>
           <%= link_to "Удалить", post_path(post), method: :delete %>
         </td>
       </tr>
       <% end %>
-    </table>
+  </table>
+  <h3>Авторы</h3>
+  <%= link_to "Создать автора", new_author_path %>
+  <table style="width:50%">
+    <tr>
+      <td>First name</td>
+      <td>Last name</td>
+      <td>methods</td>
+    </tr>
+    <% @authors.each do |author| %>
+    <tr>
+      <td><%= author.first_name %></td>
+      <td><%= author.last_name %></td>
+      <td>
+        <%= link_to "Изменить", edit_author_path(author) %>
+        <%= link_to "Удалить", author_path(author), method: :delete %>
+      </td>
+    </tr>
+    <% end %>
+  </table>
 </div>

@@ -5,7 +5,6 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
-Post.create(title: "Тестовый заголовок", text: "Привет, тестим создание из сидов.")
-
-Post.create(title: "Тест", text: "Привет, тестим создание из сидов.")
+Author.find_or_create_by(first_name: "Соловей ", last_name: "Разбойник")
+ivan = Author.find_or_create_by(first_name: "Иван", last_name: "Пупкин")
+Post.find_or_create_by(title: "Пост #1", text: "бла-бла-бла", author_id: ivan.id)

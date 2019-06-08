@@ -1,8 +1,9 @@
 <div>
   <%= link_to 'К списку постов', url_for(:back) %>
   <%= form_for @post do |f| %>
-    <%= f.text_field :title  %>
-    <%= f.text_area :text %>
-    <%= f.submit "Сохранить пост" %>
+    <%= f.text_field :title, style: "margin: 10px"%><br>
+    <%= f.text_area :text, style: "margin: 10px" %><br>
+    <%= f.select :author_id, options_for_select( Author.all.map{|p| [p.full_name, p.id]}, params[:author_id]) %>
+    <%= f.submit "Cоздать пост", style: "margin: 10px" %>
   <% end %>
 </div>

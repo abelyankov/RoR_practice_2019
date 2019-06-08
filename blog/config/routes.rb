@@ -8,5 +8,6 @@ Rails.application.routes.draw do
   # Вы можете использовать вместо прописания каждого роута, resources и название вашего контроллера.
   # По умолчанию будут поставлены все возможные роуты из этого контроллера. Чтобы их посмотреть: 'rails routes'.
   resources :posts
+  resources :authors
 
 end
