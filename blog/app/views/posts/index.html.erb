@@ -1,21 +1,28 @@
 <div>
   <h1>Список постов</h1>
+  <%= link_to "Создать пост", new_post_path %>
   <table style="width:100%">
     <tr>
       <td>id</td>
       <td>title</td>
       <td>text</td>
+      <td>methods</td>
     </tr>
     <% @posts.each do |post| %>
       <tr>
         <td>
-          <%= link_to post.id, post_path(post.id) %>
+          <%=post.id%>
         </td>
         <td>
           <%= post.title %>
         </td>
         <td>
           <%= post.text %>
+        </td>
+        <td>
+          <%= link_to "Показать", post_path(post) %>
+          <%= link_to "Изменить пост", edit_post_path(post) %>
+          <%= link_to "Удалить", post_path(post), method: :delete %>
         </td>
       </tr>
       <% end %>

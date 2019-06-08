@@ -1,0 +1,8 @@
+<div>
+  <%= link_to "Назад", post_path(@post) %>
+  <%= form_for @post do |f| %>
+    <%= f.text_field :title, value: @post.title %>
+    <%= f.text_area :text, value: @post.text %>
+    <%= f.submit "Иземенить пост" %>
+  <% end %>
+</div>
